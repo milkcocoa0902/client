@@ -1,6 +1,10 @@
+*.swp
 .vs/
+bin/
+common/bin/
+common/obj/
+common/.vs/
 Droid/bin/
 Droid/obj/
-Droid/Assets/
 iOS/bin/
 iOS/obj/
