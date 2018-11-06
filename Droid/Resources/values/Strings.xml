@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, Click Me!</string>
+	<string name="app_name">BallPOoN.Droid</string>
+	<string name="feel">今の気持ちをタップしてね</string>
+	<string name="feelHappy">ハッピー</string>
+	<string name="feelSad">悲しい</string>
+	<string name="feelMoving">ドキドキ</string>
+	<string name="feelHoom">モヤモヤ</string>
+	<string name="feelHelp">HELP!!</string>
+    <string name="postHint">ひとことを投稿する場合は入力してください。\n(しない場合は空白のまま投稿を押してください)</string>
+    <string name="submit">投稿</string>
+</resources>

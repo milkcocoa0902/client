@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<style name="appTheme" parent="appTheme.Base">
+		
+	</style>
+	
+	<style name = "appTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+		--<item name="windowNoTitle">true</item>
+		<item name="windowActionBar">false</item>
+		<item name="colorPrimary">#E53935</item>
+		<item name="colorPrimaryDark">#D32F2F</item>
+	</style>
+	<!--TabLayout Theme-->
+ 	<style name="TabLayoutThemes" parent="Widget.Design.TabLayout">
+		<item name="tabIndicatorColor">#FFFFFF</item> <!-- tabIndicatorColor is color of underline each tabs. -->
+		<item name="tabIndicatorHeight">2dp</item><!-- tabIndicatorHeight is height of underline -->
+		<item name="tabSelectedTextColor">#212121</item><!-- color of text when tabs be selected -->
+	</style>
+</resources>
