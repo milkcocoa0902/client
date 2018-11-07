@@ -52,4 +52,30 @@ namespace BallPOoN{
 			Comment = _comment;
 		}
 	};
+
+	[JsonObject]
+	public class Key {
+		[JsonProperty("name")]
+		public string Name { get; private set; }
+
+		[JsonProperty("since")]
+		public string Since { get; private set; }
+
+		[JsonProperty("to")]
+		public string To { get; private set; }
+
+		[JsonProperty("id")]
+		public ulong Id { get; private set; }
+
+		[JsonProperty("count")]
+		public byte Count { get; private set; }
+
+		public Key(string _name, string _since, string _to, ulong _id, byte _count){
+			Name = _name;
+			Since = _since;
+			To = _to;
+			Id = _id;
+			Count = _count;
+		}
+	};
 }
