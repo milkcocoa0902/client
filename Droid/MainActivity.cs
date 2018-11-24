@@ -44,12 +44,15 @@ namespace BallPOoN.Droid {
 		protected override void OnResume() {
 			base.OnResume();
 
-			locationManager.RequestLocationUpdates(locationProvider, 2000, 1, this);
+			if(locationProvider != null) {
+				locationManager.RequestLocationUpdates(locationProvider, 1500, 1, this);
+			}
 		}
 
 		protected override void OnPause() {
 			base.OnPause();
-			locationManager.RemoveUpdates(this);
+			if(locationManager != null)
+				locationManager.RemoveUpdates(this);
 		}
 
 		protected override void OnCreate(Bundle savedInstanceState) {
@@ -62,6 +65,31 @@ namespace BallPOoN.Droid {
 
 			SetContentView(Resource.Layout.Main);
 
+
+			// Mパーミッション設定
+			{
+				var permission = CheckSelfPermission(Manifest.Permission.AccessFineLocation);
+				if(permission != Android.Content.PM.Permission.Granted) {
+					if(ShouldShowRequestPermissionRationale(Manifest.Permission.AccessFineLocation)){
+
+					}
+
+
+					ActivityCompat.RequestPermissions(this,
+									new string[] { Manifest.Permission.AccessFineLocation },
+									1);
+				}else {
+					using(var locationCriteria = new Criteria()) {
+						locationManager = (LocationManager)GetSystemService(LocationService);
+						locationCriteria.Accuracy = Accuracy.Fine;
+						locationCriteria.PowerRequirement = Power.NoRequirement;
+
+						locationProvider = locationManager.GetBestProvider(locationCriteria, true);
+					}
+					locationManager.RequestLocationUpdates(locationProvider, 1500, 1, this);
+				}
+			}
+
 			// tab設定
 			using(var tablayout = FindViewById<TabLayout>(Resource.Id.tab_layout)){
 				using(var viewPager = FindViewById<ViewPager>(Resource.Id.view_pager)) {
@@ -69,31 +97,6 @@ namespace BallPOoN.Droid {
 					tablayout.SetupWithViewPager(viewPager);
 				}
 				tablayout.GetTabAt(2).Select();
-			}
-
-			/*
-			// Mパーミッション設定
-			{
-				var permission = CheckSelfPermission(Manifest.Permission.AccessFineLocation);
-				if(permission != Android.Content.PM.Permission.Granted) {
-					ActivityCompat.RequestPermissions(this,
-									new string[] { Manifest.Permission.AccessFineLocation },
-									1);
-				}
-			}*/
-
-			// GPS設定
-			using(var locationCriteria = new Criteria()) {
-				locationManager = (LocationManager)GetSystemService(LocationService);
-				locationCriteria.Accuracy = Accuracy.Coarse;
-				locationCriteria.PowerRequirement = Power.Medium;
-
-				locationProvider = locationManager.GetBestProvider(locationCriteria, true);
-
-
-				if(locationProvider != null) {
-					locationManager.RequestLocationUpdates(locationProvider, 1500, 1, this);
-				}
 			}
 		}
 
@@ -103,6 +106,15 @@ namespace BallPOoN.Droid {
 			switch(requestCode) {
 			case 1:
 				if(grantResults.Length > 0 && grantResults[0] == Permission.Granted) {
+					// GPS設定
+					using(var locationCriteria = new Criteria()) {
+						locationManager = (LocationManager)GetSystemService(LocationService);
+						locationCriteria.Accuracy = Accuracy.Fine;
+						locationCriteria.PowerRequirement = Power.NoRequirement;
+
+						locationProvider = locationManager.GetBestProvider(locationCriteria, true);
+					}
+					locationManager.RequestLocationUpdates(locationProvider, 1500, 1, this);
 				}
 				break;
 			}

@@ -37,9 +37,9 @@ namespace BallPOoN.Droid {
 			// ユーザ名を決め打ちにしているため、これを可変にする
 			submit.Click += (sender, e) => {
 				var json = JsonConvert.SerializeObject(new Post("aaaaa", // user
-				                                                System.DateTime.Now.ToString(), // post time
-				                                                MainActivity.latitude, // latitude
-				                                                MainActivity.longitude, // longtitude
+				                                                System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), // post time
+				                                                MainActivity.longitude, // latitude
+				                                                MainActivity.latitude, // longtitude
 				                                                Intent.GetStringExtra("feel"), // how feeling
 				                                                comment.Text)); // optional comment
 

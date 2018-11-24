@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+    
+    <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:minWidth="25px"
+    android:minHeight="25px"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/relativeLayout1">
+    <ImageView
+        android:src="@android:drawable/ic_menu_gallery"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:id="@+id/imageView1" />
+    <TextView
+        android:text="jbuohonipt"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView1"
+        android:id="@+id/cardFeel" />
+    <TextView
+        android:text="jkbjbljnk;"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imageView1"
+        android:layout_below="@id/cardFeel"
+        android:id="@+id/cardComment" />
+    <TextView
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView1"
+        android:id="@+id/textView2" />
+    <ImageButton
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_below="@id/cardComment"
+        android:layout_toRightOf="@id/imageView1"
+        android:id="@+id/imageButton1"
+    android:background="@mipmap/heart"/>
+    <ImageButton
+        android:src="@mipmap/mail"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_toRightOf="@id/imageButton1"
+        android:layout_below="@id/cardComment"
+        android:id="@+id/imageButton2"
+    android:background="@mipmap/mail"/>
+    </RelativeLayout>
