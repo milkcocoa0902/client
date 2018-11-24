@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout90" >
+    <TextView
+        android:text="happy"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/postedFeeling" />
+    <TextView
+        android:text="postedComment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/postedComment"
+        android:layout_below="@id/postedFeeling" />
+    <Button
+        android:text="1"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/buttonLike"
+        android:layout_below="@id/postedComment" />
+    <Button
+        android:text="2"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:id="@+id/buttonMessage"
+        android:layout_below="@id/postedComment"
+        android:layout_toRightOf="@id/buttonLike" />
+    <TextView
+        android:text="2018-11-24-09:27:33 東京都港区"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:id="@+id/postedTime" 
+        android:layout_below="@id/postedComment" />
+    </RelativeLayout>
+</LinearLayout>

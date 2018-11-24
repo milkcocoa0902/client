@@ -2981,6 +2981,12 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f0b00ac
 			public const int cancel_action = 2131427500;
 			
+			// aapt resource value: 0x7f0b00c4
+			public const int cardComment = 2131427524;
+			
+			// aapt resource value: 0x7f0b00c3
+			public const int cardFeel = 2131427523;
+			
 			// aapt resource value: 0x7f0b004c
 			public const int center = 2131427404;
 			
@@ -3113,6 +3119,15 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f0b0066
 			public const int image = 2131427430;
 			
+			// aapt resource value: 0x7f0b00c6
+			public const int imageButton1 = 2131427526;
+			
+			// aapt resource value: 0x7f0b00c7
+			public const int imageButton2 = 2131427527;
+			
+			// aapt resource value: 0x7f0b00c2
+			public const int imageView1 = 2131427522;
+			
 			// aapt resource value: 0x7f0b00b5
 			public const int info = 2131427509;
 			
@@ -3140,17 +3155,20 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f0b0026
 			public const int listMode = 2131427366;
 			
+			// aapt resource value: 0x7f0b00bf
+			public const int listView1 = 2131427519;
+			
 			// aapt resource value: 0x7f0b0068
 			public const int list_item = 2131427432;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int masked = 2131427520;
+			// aapt resource value: 0x7f0b00c9
+			public const int masked = 2131427529;
 			
 			// aapt resource value: 0x7f0b00ae
 			public const int media_actions = 2131427502;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int message = 2131427518;
+			// aapt resource value: 0x7f0b00c0
+			public const int message = 2131427520;
 			
 			// aapt resource value: 0x7f0b0039
 			public const int middle = 2131427385;
@@ -3205,6 +3223,12 @@ namespace BallPOoN.Droid
 			
 			// aapt resource value: 0x7f0b007c
 			public const int radio = 2131427452;
+			
+			// aapt resource value: 0x7f0b00be
+			public const int refresh = 2131427518;
+			
+			// aapt resource value: 0x7f0b00c1
+			public const int relativeLayout1 = 2131427521;
 			
 			// aapt resource value: 0x7f0b0051
 			public const int right = 2131427409;
@@ -3353,6 +3377,9 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f0b00a0
 			public const int textView1 = 2131427488;
 			
+			// aapt resource value: 0x7f0b00c5
+			public const int textView2 = 2131427525;
+			
 			// aapt resource value: 0x7f0b009f
 			public const int text_input_password_toggle = 2131427487;
 			
@@ -3413,8 +3440,8 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f0b00a7
 			public const int view_pager = 2131427495;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int visible = 2131427519;
+			// aapt resource value: 0x7f0b00c8
+			public const int visible = 2131427528;
 			
 			// aapt resource value: 0x7f0b0022
 			public const int wide = 2131427362;
@@ -3685,6 +3712,9 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f040042
 			public const int tooltip = 2130968642;
 			
+			// aapt resource value: 0x7f040043
+			public const int tweetCard = 2130968643;
+			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -3699,7 +3729,13 @@ namespace BallPOoN.Droid
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Icon = 2130903040;
+			public const int heart = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int Icon = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int mail = 2130903042;
 			
 			static Mipmap()
 			{
