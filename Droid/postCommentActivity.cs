@@ -40,6 +40,7 @@ namespace BallPOoN.Droid {
 				                                                System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), // post time
 				                                                MainActivity.longitude, // latitude
 				                                                MainActivity.latitude, // longtitude
+				                                                MainActivity.altitude,
 				                                                Intent.GetStringExtra("feel"), // how feeling
 				                                                comment.Text)); // optional comment
 
