@@ -18,14 +18,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView1"
-        android:id="@+id/cardFeel" />
+        android:id="@+id/cardFeel"
+        android:textColor="@color/black"/>
     <TextView
         android:text="jkbjbljnk;"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/imageView1"
         android:layout_below="@id/cardFeel"
-        android:id="@+id/cardComment" />
+        android:id="@+id/cardComment"
+        android:textColor="@color/black" />
     <TextView
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium"

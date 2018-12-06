@@ -3837,8 +3837,8 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f080021
 			public const int abc_toolbar_collapse_description = 2131230753;
 			
-			// aapt resource value: 0x7f080039
-			public const int app_name = 2131230777;
+			// aapt resource value: 0x7f080038
+			public const int app_name = 2131230776;
 			
 			// aapt resource value: 0x7f08002f
 			public const int appbar_scrolling_view_behavior = 2131230767;
@@ -3918,8 +3918,8 @@ namespace BallPOoN.Droid
 			// aapt resource value: 0x7f08003c
 			public const int feelSad = 2131230780;
 			
-			// aapt resource value: 0x7f080038
-			public const int hello = 2131230776;
+			// aapt resource value: 0x7f080039
+			public const int hello = 2131230777;
 			
 			// aapt resource value: 0x7f080032
 			public const int password_toggle_content_description = 2131230770;
