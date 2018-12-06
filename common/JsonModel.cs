@@ -40,17 +40,21 @@ namespace BallPOoN{
 		[JsonProperty("latitude")]
 		public string Latitude { get; private set; }
 
+		[JsonProperty("altitude")]
+		public string Altitude { get; private set;}
+
 		[JsonProperty("feel")]
 		public string Feel { get; private set; }
 
 		[JsonProperty("comment")]
 		public string Comment { get; private set; }
 
-		public Post(string _name, string _time, string _longtitude, string _latitude, string _feel, string _comment) {
+		public Post(string _name, string _time, string _longtitude, string _latitude, string _alt, string _feel, string _comment) {
 			Name = _name;
 			Time = _time;
 			Longtitude = _longtitude;
 			Latitude = _latitude;
+			Altitude = _alt;
 			Feel = _feel;
 			Comment = _comment;
 		}
@@ -70,6 +74,9 @@ namespace BallPOoN{
 		[JsonProperty("latitude")]
 		public string Latitude { get; private set; }
 
+		[JsonProperty("altitude")]
+		public string Altitude { get; private set; }
+
 		[JsonProperty("distance")]
 		public double Distance { get; private set; }
 
@@ -79,11 +86,12 @@ namespace BallPOoN{
 		[JsonProperty("comment")]
 		public string Comment { get; private set; }
 
-		public TimeLineUnit(ulong _id, string _name, string _long, string _lat, double _dist, string _feel, string _comment){
+		public TimeLineUnit(ulong _id, string _name, string _long, string _lat, string _alt, double _dist, string _feel, string _comment){
 			Id = _id;
 			Name = _name;
 			Longtitude = _long;
 			Latitude = _lat;
+			Altitude = _alt;
 			Distance = _dist;
 			Feel = _feel;
 			Comment = _comment;
