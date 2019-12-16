@@ -1,0 +1,2 @@
+Xamarin.Wikitude.* filter=lfs diff=lfs merge=lfs -text
+packegae/Xamarin.Wikitude.SDK.JS.8.2.0/* filter=lfs diff=lfs merge=lfs -text
