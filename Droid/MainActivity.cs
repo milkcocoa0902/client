@@ -1,5 +1,8 @@
-﻿using Android;
+﻿using System.Net.Http;
+using System.Text;
+using Android;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Locations;
 using Android.OS;
@@ -8,49 +11,73 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Android.Support.V7.App;
+using Android.Widget;
 using BallPOoN.Droid.Fragment;
-using Android.Content;
 using Com.Wikitude.Architect;
 using Com.Wikitude.Common.Camera;
-using System.Threading.Tasks;
-using Android.Widget;
+using Newtonsoft.Json;
 
 namespace BallPOoN.Droid {
 	[Activity(Label = "BallPOoN", 
-	          MainLauncher = true, 
+	          //MainLauncher = true, 
 	          Icon = "@mipmap/icon",
 	          Theme = "@style/appTheme",
 	          ConfigurationChanges = ConfigChanges.Orientation |
 						ConfigChanges.KeyboardHidden |
 						ConfigChanges.ScreenSize)]
-	public class MainActivity : AppCompatActivity, Android.Locations.ILocationListener {
+	public class MainActivity : AppCompatActivity, Android.Locations.ILocationListener/*, ArchitectView.ISensorAccuracyChangeListener*/ {
 		public static string latitude;
 		public static string longitude;
 		public static string altitude;
 		public static Context context;
 		bool enabled;
 		bool isLocationInitialized;
+		byte cnt;
 
 		LocationManager locationManager;
 		string locationProvider;
 
 		public void OnLocationChanged(Location location) {
-			latitude = location.Latitude.ToString();
-			longitude = location.Longitude.ToString();
-			altitude = location.Altitude.ToString();
+			cnt++;
+			
+			//if(location.Accuracy < 20){
+				latitude = location.Latitude.ToString();
+				longitude = location.Longitude.ToString();
+				altitude = (location.Altitude - 30).ToString();
+
+				if(AroundFragment.architectView != null) {
+				/*AroundFragment.architectView.SetLocation(location.Latitude,
+																								 location.Longitude,
+																								 location.Altitude,
+																								 location.Accuracy - 30);*/
+
+				// AroundFragment.architectView.RegisterSensorAccuracyChangeListener(this);
+				}	
+
+			if(cnt == 4){
+				cnt = 0; 
+
+				var js = "World.requestPersonalInformation('" +
+					 loginActivity.account + "', " +
+												latitude + ", " +
+												longitude + ");";
+				AroundFragment.architectView.CallJavascript(js);
+
+				var json = JsonConvert.SerializeObject(new Post(loginActivity.account, "", longitude, latitude, altitude, "", ""));
+
+				var content = new StringContent(json,
+																				Encoding.UTF8,
+																				"application/json");
+				var client = new HttpClient();
+				var response = client.PostAsync("http://koron0902.ddns.net:23456/update/" + loginActivity.account,
+																				content);
+			}
+
+			//}
 
 			if(!isLocationInitialized){
 				Toast.MakeText(ApplicationContext, "Location is initialized", ToastLength.Short).Show();
 				isLocationInitialized = true;
-			}
-
-			if(AroundFragment.architectView != null){
-				AroundFragment.architectView.SetLocation(location.Latitude, 
-				                                         location.Longitude, 
-				                                         location.Altitude, 
-				                                         location.Accuracy);
-				
-
 			}
 		}
 
@@ -66,7 +93,7 @@ namespace BallPOoN.Droid {
 		protected override void OnResume() {
 			base.OnResume();
 
-			Toast.MakeText(this, "OnResume", ToastLength.Short).Show();
+			//Toast.MakeText(this, "OnResume", ToastLength.Short).Show();
 			if(AroundFragment.architectView != null && AroundFragment.paused_) {
 				AroundFragment.architectView.OnResume();
 				AroundFragment.paused_ = false;
@@ -111,7 +138,7 @@ namespace BallPOoN.Droid {
 			{
 				var permission = CheckSelfPermission(Manifest.Permission.AccessFineLocation);
 				var cameraPermission = CheckSelfPermission(Manifest.Permission.Camera);
-				if(permission != Android.Content.PM.Permission.Granted ||
+				/*if(permission != Android.Content.PM.Permission.Granted ||
 				   cameraPermission != Permission.Granted) {
 					if(ShouldShowRequestPermissionRationale(Manifest.Permission.AccessFineLocation) ||
 					   ShouldShowRequestPermissionRationale(Manifest.Permission.Camera) || 
@@ -124,7 +151,7 @@ namespace BallPOoN.Droid {
 						Manifest.Permission.Camera,
 						Manifest.Permission.Internet},
 									1);
-				} else {
+				} else*/ {
 					using(var locationCriteria = new Criteria()) {
 						locationManager = (LocationManager)GetSystemService(LocationService);
 						locationCriteria.Accuracy = Accuracy.Fine;
@@ -171,27 +198,11 @@ namespace BallPOoN.Droid {
 			}
 		}
 
-		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Permission[] grantResults) {
-			base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
-			enabled = true;
 
-			switch(requestCode) {
-			case 1:
-				if(grantResults.Length > 0 && grantResults[0] == Permission.Granted) {
-					// GPS設定
-					using(var locationCriteria = new Criteria()) {
-						locationManager = (LocationManager)GetSystemService(LocationService);
-						locationCriteria.Accuracy = Accuracy.Fine;
-						locationCriteria.PowerRequirement = Power.NoRequirement;
-
-						locationProvider = locationManager.GetBestProvider(locationCriteria, true);
-					}
-					locationManager.RequestLocationUpdates(locationProvider, 1500, 1, this);
-				}
-				break;
-			}
-		}
+		/*public void OnCompassAccuracyChanged(int p0) {
+			throw new System.NotImplementedException();
+		}*/
 	}
 }
 

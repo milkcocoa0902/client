@@ -1,30 +1,15 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Net.Http;
 using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
+using Android.Support.V4.Widget;
 using Android.Views;
 using Android.Widget;
-using Android.Graphics;
-using Android.Support.V4.App;
-using Android.Support.V4.Widget;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using Android.Support.V4.View;
-using Android.Support.V7.App;
-using Android.Locations;
-using Android.Content.PM;
-using Android.Support.Design.Widget;
-using Android.Support.V4.Content;
-using Android;
-using System.Threading.Tasks;
 
 
 namespace BallPOoN.Droid.Fragment {
@@ -71,7 +56,7 @@ namespace BallPOoN.Droid.Fragment {
 					return;
 				}
 
-				var json = JsonConvert.SerializeObject(new Key("aaaaa", "", "", 200, MainActivity.latitude, MainActivity.longitude, 7000000, 100)); // optional comment
+				var json = JsonConvert.SerializeObject(new Key(loginActivity.account, "", "", 200, MainActivity.latitude, MainActivity.longitude, 7000000, 100)); // optional comment
 
 				var content = new StringContent(json, Encoding.UTF8, "application/json");
 				var client = new HttpClient();

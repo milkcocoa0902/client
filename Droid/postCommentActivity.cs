@@ -1,15 +1,13 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Support.V7.App;
+﻿using System.Net.Http;
+using System.Text;
+using Android.App;
 using Android.Content;
 using Android.Graphics;
-
+using Android.OS;
+using Android.Support.V7.App;
+using Android.Widget;
 using Newtonsoft.Json;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using BallPOoN;
+using BallPOoN.Droid.Fragment;
 
 namespace BallPOoN.Droid {
 	[Activity(Label = "postCommentActivity",
@@ -28,15 +26,13 @@ namespace BallPOoN.Droid {
 
 			var comment = FindViewById<EditText>(Resource.Id.postComment);
 			comment.Hint = GetString(Resource.String.postHint);
-			comment.RequestFocus();
-			comment.FocusedByDefault = true;
 			var submit = FindViewById<Button>(Resource.Id.buttonSubmit);
 			submit.Text = GetString(Resource.String.submit);
 
 			// ToDo:
 			// ユーザ名を決め打ちにしているため、これを可変にする
 			submit.Click += (sender, e) => {
-				var json = JsonConvert.SerializeObject(new Post("aaaaa", // user
+				var json = JsonConvert.SerializeObject(new Post(loginActivity.account, // user
 				                                                System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"), // post time
 				                                                MainActivity.longitude, // latitude
 				                                                MainActivity.latitude, // longtitude
@@ -50,6 +46,15 @@ namespace BallPOoN.Droid {
 				var client = new HttpClient();
 				var response = client.PostAsync("http://koron0902.ddns.net:23456/post",
 																				content);
+
+				var js = "World.requestPersonalInformation('" +
+				loginActivity.account + "', " +
+										 MainActivity.latitude + ", " +
+										 MainActivity.longitude + ");";
+
+				//Toast.MakeText(ApplicationContext, js, ToastLength.Short).Show();
+				AroundFragment.architectView.CallJavascript(js);
+
 				Finish();
 			};
 		}

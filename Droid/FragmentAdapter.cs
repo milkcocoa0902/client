@@ -1,14 +1,9 @@
 ﻿using System;
 using Android.Content;
-using Android.Views;
-using Android.OS;
-using Android.Widget;
-using Android.Support.V4.App;
-using Android.Support.V4.Widget;
-using Android.Support.V7.App;
 using Android.Runtime;
-using Java.Lang;
+using Android.Support.V4.App;
 using BallPOoN.Droid.Fragment;
+using Java.Lang;
 
 namespace BallPOoN.Droid {
 	//using Fragment = Android.Support.V4.App.Fragment;

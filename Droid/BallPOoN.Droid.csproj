@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -124,6 +123,7 @@
     <Compile Include="Fragments\AroundFragment.cs" />
     <Compile Include="Fragments\PreferenceFragment.cs" />
     <Compile Include="ListAdapter.cs" />
+    <Compile Include="loginActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -150,6 +150,7 @@
     <AndroidResource Include="Resources\layout\tweetCard.axml" />
     <AndroidResource Include="Resources\mipmap-hdpi\heart.png" />
     <AndroidResource Include="Resources\mipmap-hdpi\mail.png" />
+    <AndroidResource Include="Resources\layout\login.axml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fragments\" />

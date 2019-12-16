@@ -1,23 +1,9 @@
-﻿using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Support.V4.App;
-using Android.Support.V4.View;
-using Android.Support.V4.Widget;
-using Android.Support.V7.App;
-using Android.Locations;
-using Android.Runtime;
-using Android.Content.PM;
-using Newtonsoft.Json;
-using Android.Support.Design.Widget;
-using System.Net.Http;
-using System.Text;
-using Android.Support.V4.Content;
-using Android;
-using Android.Views;
-using Java.Lang;
+﻿using System.Collections.Generic;
 using Android.Content;
-using System.Collections.Generic;
+using Android.Runtime;
+using Android.Views;
+using Android.Widget;
+using Java.Lang;
 
 namespace BallPOoN.Droid {
 	public class ListAdapter : BaseAdapter{

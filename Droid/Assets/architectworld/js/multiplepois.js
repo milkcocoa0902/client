@@ -37,7 +37,7 @@ var World = {
                 "description": poiData[currentPlaceNr].description
             };
 
-            alert(singlePoi.id);
+            /*alert(singlePoi.id);*/
             /*
                 To be able to deselect a marker while the user taps on the empty screen, the World object holds an
                  array that contains each marker.
@@ -64,11 +64,11 @@ var World = {
     /* Location updates, fired every time you call architectView.setLocation() in native environment. */
     locationChanged: function locationChangedFn(lat, lon, alt, acc) {
 
-        if (!World.initiallyLoadedData) {
+        /*if (!World.initiallyLoadedData) {*/
             /*World.requestDataFromLocal(lat, lon);*/
-            World.requestPersonalInformation(lat, lon);
+            /*World.requestPersonalInformation('aaaaa', lat, lon);*/
             World.initiallyLoadedData = true;
-        }
+        /*}*/
     },
 
     /* Fired when user pressed maker in cam. */
@@ -120,12 +120,16 @@ var World = {
         World.loadPoisFromJsonData(poiData);
     },
     
-    requestPersonalInformation: function requestPersonalInformationFn(latitude, longtitude){
+    requestPersonalInformation: function requestPersonalInformationFn(name, latitude, longtitude){
+        var len = World.markerList.length;
+        for(var i = 0;i < length;i++){
+            World.markerList[i].remove();
+        }
 
         var url = 'http://koron0902.ddns.net:23456/get_around';
 
         var json = {
-            name : 'aaaaa',
+            name : name,
             since : '2018-01-01 00:00:00',
             to : '2018-12-31 23:59:59',
             latitude : latitude,
@@ -143,7 +147,6 @@ var World = {
             sctiptCharset : 'utf-8',
             success : function(data) {
                 // Success
-                alert(data[0]);
                 World.loadPoisFromJsonData(data);
             },
             error : function(data) {

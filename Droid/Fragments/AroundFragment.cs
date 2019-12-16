@@ -1,20 +1,10 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
-using Android.Graphics;
-using Android.Support.V4.App;
 using Com.Wikitude.Architect;
-using Com.Wikitude.Common.Camera;
 
 namespace BallPOoN.Droid.Fragment {
 	public class AroundFragment : Android.Support.V4.App.Fragment {
@@ -24,7 +14,7 @@ namespace BallPOoN.Droid.Fragment {
 		public override void OnCreate(Bundle savedInstanceState) {
 			base.OnCreate(savedInstanceState);
 
-			Toast.MakeText(Application.Context, "OnCreate on ArchitectView", ToastLength.Short).Show();
+			//Toast.MakeText(Application.Context, "OnCreate on ArchitectView", ToastLength.Short).Show();
 		}
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,14 +24,14 @@ namespace BallPOoN.Droid.Fragment {
 			//var view = inflater.Inflate(Resource.Layout.around, container, false);
 			//return view;
 
-			Toast.MakeText(Application.Context, "OnCreateView on ArchitectView", ToastLength.Short).Show();
+			//Toast.MakeText(Application.Context, "OnCreateView on ArchitectView", ToastLength.Short).Show();
 			return architectView;
 		}
 
 		public override void OnDestroyView() {
 			base.OnDestroyView();
 
-			Toast.MakeText(Application.Context, "OnDestroyView on ArchitectView", ToastLength.Short).Show();
+			//Toast.MakeText(Application.Context, "OnDestroyView on ArchitectView", ToastLength.Short).Show();
 		}
 
 		public override void OnResume() {
@@ -50,7 +40,7 @@ namespace BallPOoN.Droid.Fragment {
 				architectView.OnResume();
 				paused_ = false;
 			}
-			Toast.MakeText(Application.Context, "OnResume on ArchitectView", ToastLength.Short).Show();
+			//Toast.MakeText(Application.Context, "OnResume on ArchitectView", ToastLength.Short).Show();
 		}
 
 		public override void OnPause() {
@@ -61,7 +51,7 @@ namespace BallPOoN.Droid.Fragment {
 				paused_ = true;
 			}
 
-			Toast.MakeText(Application.Context, "OnPause on ArchitectView", ToastLength.Short).Show();
+			//Toast.MakeText(Application.Context, "OnPause on ArchitectView", ToastLength.Short).Show();
 		}
 
 	}
